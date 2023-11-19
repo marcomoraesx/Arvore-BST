@@ -4,7 +4,6 @@
 
 int main(int argc, char *argv) {
     arvore a = NULL;
-
     int valor = 0;
     int opc = 0;
 
@@ -20,7 +19,6 @@ int main(int argc, char *argv) {
                 printf("\n");
                 break;
             case 2:
-                scanf("%d", &valor);
                 preorder(a);
                 printf("\n");
                 break;
@@ -89,4 +87,3 @@ int main(int argc, char *argv) {
 
     return 0;
 }
-

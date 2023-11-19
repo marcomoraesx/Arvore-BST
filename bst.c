@@ -63,7 +63,7 @@ int qtde_par(arvore raiz){
     return qtde;
 }
 
-int antecessor(arvore raiz, int n){
+/*int antecessor(arvore raiz, int n){
     int ant = -1;
     if (raiz != NULL) {
         if (n == raiz->valor){
@@ -79,6 +79,37 @@ int antecessor(arvore raiz, int n){
         }
     }
     return ant;
+}*/
+
+int maior_valor(arvore raiz) {
+    int maior = raiz->valor ? raiz->valor : NULL;
+    if (raiz != NULL && raiz->dir != NULL) {
+        maior = maior_valor(raiz->dir);
+    }
+    return maior;
+}
+
+int antecessor(arvore raiz, int valor) {
+    arvore candidato = NULL;
+    arvore raiz_atual = raiz;
+    while (raiz_atual != NULL) {
+        if (valor < raiz_atual->valor) {
+            raiz_atual = raiz_atual->esq;
+        } else if (valor > raiz_atual->valor) {
+            candidato = raiz_atual;
+            raiz_atual = raiz_atual->dir;
+        } else {
+            if (raiz_atual->esq != NULL) {
+                return maior_valor(raiz_atual->esq);
+            } else {
+                if (candidato != NULL) {
+                    return candidato->valor;
+                }
+                break;
+            }
+        }
+    }
+    return -1;
 }
 
 int pai(arvore raiz, int n){
@@ -223,8 +254,8 @@ arvore remover(arvore raiz, int valor) {
 }
 
 int menor_valor(arvore raiz) {
-    int menor = raiz->valor;
-    if (raiz->esq != NULL) {
+    int menor = raiz->valor ? raiz->valor : NULL;
+    if (raiz->esq != NULL && raiz->esq != NULL) {
         menor = menor_valor(raiz->esq);
     }
     return menor;

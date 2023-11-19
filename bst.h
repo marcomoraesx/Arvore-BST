@@ -27,6 +27,7 @@ int altura(arvore raiz);
 arvore podar(arvore raiz, int valor);
 arvore remover(arvore raiz, int valor);
 int menor_valor(arvore raiz);
+int maior_valor(arvore raiz);
 
 int somatorio(arvore raiz);
 void mesclar (arvore raiz1, arvore raiz2);
