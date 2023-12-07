@@ -47,7 +47,7 @@ int main(int argc, char *argv) {
                 break;
             case 9:
                 scanf("%d", &valor);
-                remover(a, valor);
+                a = remover(a, valor);
                 preorder(a);
                 printf("\n");
                 break;
@@ -56,7 +56,7 @@ int main(int argc, char *argv) {
                 break;
             case 11:
                 scanf("%d", &valor);
-                podar(a, valor);
+                a = podar(a, valor);
                 preorder(a);
                 printf("\n");
                 break;

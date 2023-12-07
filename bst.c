@@ -232,18 +232,24 @@ arvore podar(arvore raiz, int valor) {
 arvore remover(arvore raiz, int valor) {
     if (raiz != NULL) {
         if (raiz->valor == valor) {
-            if (raiz->esq == NULL) {
-                arvore temp = raiz->dir;
+            if (raiz->esq == NULL && raiz->dir == NULL) {
                 free(raiz);
-                return temp;
-            } else if (raiz->dir == NULL) {
+                return NULL;
+            }
+            if (raiz->esq != NULL && raiz->dir == NULL) {
                 arvore temp = raiz->esq;
                 free(raiz);
                 return temp;
             }
-            int sucessor = menor_valor(raiz->dir);
-            raiz->valor = sucessor;
-            raiz->dir = remover(raiz->dir, sucessor);
+            if (raiz->dir != NULL && raiz->esq == NULL) {
+                arvore temp = raiz->dir;
+                free(raiz);
+                return temp;
+            }
+            int menor = menor_valor(raiz->dir);
+            raiz->valor = menor;
+            raiz->dir = remover(raiz->dir, menor);
+            return raiz;
         } else if (valor < raiz->valor) {
             raiz->esq = remover(raiz->esq, valor);
         } else {
@@ -255,7 +261,7 @@ arvore remover(arvore raiz, int valor) {
 
 int menor_valor(arvore raiz) {
     int menor = raiz->valor ? raiz->valor : NULL;
-    if (raiz->esq != NULL && raiz->esq != NULL) {
+    if (raiz->esq != NULL) {
         menor = menor_valor(raiz->esq);
     }
     return menor;
