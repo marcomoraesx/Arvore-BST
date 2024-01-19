@@ -1,10 +1,10 @@
 # depslib dependency file v1.0
-1701986785 source:/home/marco/Faculdade/P3/AED2/ATT_AED2_01/bst.c
+1705679537 source:/home/marco/Faculdade/P3/AED2/ATT_AED2_01/bst.c
 	"bst.h"
 	<stdlib.h>
 	<stdio.h>
 
-1700410986 /home/marco/Faculdade/P3/AED2/ATT_AED2_01/bst.h
+1705679115 /home/marco/Faculdade/P3/AED2/ATT_AED2_01/bst.h
 
 1701986949 source:/home/marco/Faculdade/P3/AED2/ATT_AED2_01/main.c
 	<stdio.h>
